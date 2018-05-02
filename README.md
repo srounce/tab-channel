@@ -8,11 +8,13 @@ npm i --save tab-channel
 
 ## Usage
 As a polyfill for BroadcastChannel:
+
 ```javascript
 import 'tab-channel/polyfill'
 ```
 
 Use implementation directly:
+
 ```javascript
 import { BroadcastChannel as Channel } from 'tab-channel'
 
