@@ -28,7 +28,7 @@
       color: #727272;
     }
   </style>
-  <script src="channel.js"></script>
+  <script src="./polyfill.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -38,7 +38,7 @@
 </div>
 <script>
   var count = 0
-  var bc = new TabChannel.default('channel')
+  var bc = new BroadcastChannel('channel')
   bc.onmessage = function (msg) {
     count = JSON.parse(msg.data).count
     updateCount(count)

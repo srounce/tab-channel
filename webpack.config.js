@@ -1,23 +1,27 @@
-const path = require('path');
-const mode = process.env.NODE_ENV === 'dev' ? 'development' : 'production'
-let outputPath, target
-if (mode === 'development') {
-  outputPath = path.resolve(__dirname, 'test')
-  target = 'window'
-} else {
-  outputPath = path.resolve(__dirname, 'dist')
-  target = 'umd'
+const path = require("path");
+const mode =
+  process.env.NODE_ENV === "production" ? "production" : "development";
+let outputPath = path.resolve(__dirname, "test");
+
+if (mode === "production") {
+  outputPath = path.resolve(__dirname);
 }
 
 module.exports = {
   entry: {
-    main: './src/channel.js'
+    index: "./src/index.js",
+    BroadcastChannel: "./src/BroadcastChannel.js",
+    polyfill: "./src/polyfill.js"
   },
   output: {
     path: outputPath,
-    filename: 'channel.js',
-    libraryTarget: target,
-    library: 'TabChannel'
+    filename: "[name].js",
+    libraryTarget: "umd"
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "test"),
+    compress: true,
+    port: 9000
   },
   mode: mode,
   module: {
@@ -27,13 +31,13 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['env']
+              presets: ["env"]
             }
           },
           {
-            loader: 'eslint-loader',
+            loader: "eslint-loader",
             options: {
               fix: true
             }

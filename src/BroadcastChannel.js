@@ -39,7 +39,7 @@ function msgHandler(e) {
   }
 }
 
-class TabChannel {
+export class BroadcastChannel {
   constructor(channelName) {
     if (!window.localStorage) {
       throw new Error("localStorage not available");
@@ -102,5 +102,3 @@ class TabChannel {
     // override by user
   }
 }
-
-export default window.BroadcastChannel || TabChannel;

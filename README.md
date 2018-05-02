@@ -1,14 +1,20 @@
 # tab-channel
 send message to other tab in the same origin. use BroadcastChannel default, use storage event as fallback
 
-## install
+## Installation
 ```
-npm i tab-channel
+npm i --save tab-channel
 ```
 
-## useage
+## Usage
+As a polyfill for BroadcastChannel:
 ```javascript
-import Channel from 'tab-channel'
+import 'tab-channel/polyfill'
+```
+
+Use implementation directly:
+```javascript
+import { BroadcastChannel as Channel } from 'tab-channel'
 
 // channel name is required
 var channel = new Channel('my-channel')

@@ -2,10 +2,15 @@
   "name": "tab-channel",
   "version": "1.0.1",
   "description": "send message to other tab in the same origin. use BroadcastChannel as default, use storage event as fallback",
-  "main": "dist/channel.js",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
+  "files": [
+    "index.js",
+    "BroadcastChannel.js",
+    "polyfill.js"
+  ],
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -16,12 +21,18 @@
     "eslint-plugin-prettier": "^2.6.0",
     "prettier": "^1.11.1",
     "webpack": "^4.2.0",
-    "webpack-cli": "^2.0.13"
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "env NODE_ENV='dev' ./node_modules/.bin/webpack --config ./webpack.config.js -w",
-    "build": "webpack --config ./webpack.config.js"
+    "start": "webpack-dev-server --config ./webpack.config.js -w",
+    "dev": "npm run -s start",
+    "build": "env NODE_ENV='production' webpack --config ./webpack.config.js",
+    "clean": "rm ./dist/*.js ./test/*.js",
+    "format": "prettier --write 'src/**'",
+    "lint": "eslint 'src/**'",
+    "prepublish": "npm run -s build"
   },
   "keywords": [
     "cross-tab",

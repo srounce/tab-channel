@@ -1,1 +1,9 @@
 test/channel.js
+node_modules/
+.DS_Store
+yarn-error.log
+
+# Build artefacts
+polyfill.js
+BroadcastChannel.js
+index.js
