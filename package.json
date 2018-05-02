@@ -1,6 +1,6 @@
 {
   "name": "@srounce/broadcastchannel",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "send message to other tab in the same origin. use BroadcastChannel as default, use storage event as fallback",
   "main": "index.js",
   "directories": {
