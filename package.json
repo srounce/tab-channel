@@ -1,6 +1,6 @@
 {
   "name": "@srounce/broadcastchannel",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "send message to other tab in the same origin. use BroadcastChannel as default, use storage event as fallback",
   "main": "index.js",
   "directories": {
@@ -41,12 +41,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/legeneek/tab-channel.git"
+    "url": "git+https://github.com/srounce/tab-channel.git"
   },
-  "author": "legeneek",
+  "authors": [
+    "legeneek",
+    "srounce"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/legeneek/tab-channel/issues"
+    "url": "https://github.com/srounce/tab-channel/issues"
   },
-  "homepage": "https://github.com/legeneek/tab-channel#readme"
+  "homepage": "https://github.com/srounce/tab-channel#readme"
 }
